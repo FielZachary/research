@@ -1,0 +1,43 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |
+| \\      /  F ield         OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     Version:  2.3.0                                 |
+|   \\  /    A nd           Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+
+dimensions      [0 1 -1 0 0 0 0];   // SI unit: meters per second (m/s)
+
+internalField   uniform (0 0 0);    // Initial velocity: zero everywhere
+
+boundaryField
+{
+    // Fan Inlet (e.g., air velocity of 2 m/s in the x direction)
+    fan_inlet
+    {
+        type fixedValue;
+        value uniform (2 0 0);   // Set velocity coming from the fan in the x-direction
+    }
+
+    // Aircon Inlet (e.g., air velocity of -1.5 m/s in the x direction)
+    aircon_inlet
+    {
+        type fixedValue;
+        value uniform (-1.5 0 0);   // Set velocity for air from the aircon
+    }
+
+    // Walls (no-slip condition: velocity is zero on the walls)
+    walls
+    {
+        type noSlip;
+    }
+}

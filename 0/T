@@ -1,0 +1,42 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      T;
+}
+
+dimensions      [0 0 0 1 0 0 0];   // SI unit: Kelvin (K)
+
+internalField   uniform 300;    // Initial temperature: 300 K
+
+boundaryField
+{
+    fan_inlet
+    {
+        type fixedValue;
+        value uniform 300;    // Air from the fan at 300 K (ambient temperature)
+    }
+
+    aircon_inlet
+    {
+        type fixedValue;
+        value uniform 290;    // Cooler air from aircon at 290 K
+    }
+
+    walls
+    {
+        type zeroGradient;    // Standard wall condition for temperature
+    }
+}
+
+
+// ************************************************************************* //

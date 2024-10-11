@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+
+application     buoyantPimpleFoam;    // Solver for transient buoyancy-driven flow
+
+startFrom       startTime;
+startTime       0;
+
+stopAt          endTime;
+endTime         100;                  // Duration of simulation in seconds
+
+deltaT          1;                    // Time step size (seconds)
+
+writeControl    timeStep;
+writeInterval   10;                   // Output every 10 time steps
+
+purgeWrite      0;
+
+// ************************************************************************* //

@@ -1,0 +1,85 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      blockMeshDict;
+}
+
+convertToMeters 1.0;
+
+vertices
+(
+    (0 0 0)    // Vertex 0
+    (8.2510 0 0)    // Vertex 1
+    (8.2510 11.5241 0)    // Vertex 2
+    (0 11.5241 0)    // Vertex 3
+    (0 0 2.0632)    // Vertex 4
+    (8.2510 0 2.0632)    // Vertex 5
+    (8.2510 11.5241 2.0632)    // Vertex 6
+    (0 11.5241 2.0632)    // Vertex 7
+    (0 2 2)   // Vertex 8
+    (0 2 4)   // Vertex 9
+    (0 4 4)   // Vertex 10
+    (0 4 2)   // Vertex 11
+    (4 5 2.0632)     // Vertex 12
+    (6 5 2.0632)     // Vertex 13
+    (6 7 2.0632)     // Vertex 14
+    (4 7 2.0632)     // Vertex 15
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (50 50 25) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    walls
+    {
+        type wall;
+        faces
+        (
+            (0 1 2 3)   // Floor
+            (4 5 6 7)   // Ceiling
+            (0 3 7 4)   // Left wall
+            (1 2 6 5)   // Right wall
+            (0 1 5 4)   // Front wall
+            (2 3 7 6)   // Back wall
+        );
+    }
+
+    fan_inlet
+    {
+        type patch;
+        faces
+        (
+            (12 13 14 15)   // Make sure this face isn't assigned elsewhere
+        );
+    }
+
+    aircon_inlet
+    {
+        type patch;
+        faces
+        (
+            (8 9 10 11)   // Ensure this face isn't overlapping with 'walls'
+        );
+    }
+);
+
+
+
+// ************************************************************************* //
