@@ -26,14 +26,14 @@ vertices
     (8.2510 0 2.0632)    // Vertex 5
     (8.2510 11.5241 2.0632)    // Vertex 6
     (0 11.5241 2.0632)    // Vertex 7
-    (0 2 2)   // Vertex 8
-    (0 2 4)   // Vertex 9
-    (0 4 4)   // Vertex 10
-    (0 4 2)   // Vertex 11
-    (4 5 2.0632)     // Vertex 12
-    (6 5 2.0632)     // Vertex 13
-    (6 7 2.0632)     // Vertex 14
-    (4 7 2.0632)     // Vertex 15
+    (0 1 2.0632) // Vertex 8
+    (1 1 2.0632) // Vertex 9  
+    (1, 0, 2.0632) // Vertex 10
+    (0, 11.5241, 0.8) // Vertex 11
+    (0, 10.5241, 0.8) // Vertex 12
+    (0, 10.5241, 0) // Vertex 13
+    (8.251 1 2.0632) // Vertex 14
+    (0 0 0.8) // Vertex 15
 );
 
 blocks
@@ -53,8 +53,10 @@ boundary
         faces
         (
             (0 1 2 3)   // Floor
-            (4 5 6 7)   // Ceiling
-            (0 3 7 4)   // Left wall
+            (8 14 6 7)   // Ceiling 1
+            (10 5 14 9) // Ceiling 2
+            (15 11 7 4)   // Left wall 1
+            (0 13 12 15)    // Left wall 2
             (1 2 6 5)   // Right wall
             (0 1 5 4)   // Front wall
             (2 3 7 6)   // Back wall
@@ -66,7 +68,7 @@ boundary
         type patch;
         faces
         (
-            (12 13 14 15)   // Make sure this face isn't assigned elsewhere
+            (4 8 9 10)   // Make sure this face isn't assigned elsewhere
         );
     }
 
@@ -75,7 +77,7 @@ boundary
         type patch;
         faces
         (
-            (8 9 10 11)   // Ensure this face isn't overlapping with 'walls'
+            (3 11 12 13)   // Ensure this face isn't overlapping with 'walls'
         );
     }
 );
