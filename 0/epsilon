@@ -20,20 +20,22 @@ internalField   uniform 0.01;
 
 boundaryField
 {
-    floor
+    walls
     {
         type            epsilonWallFunction;
-        value           uniform 0.01;
+        value           uniform 0.1;
     }
-    ceiling
+
+    fan_inlet
     {
-        type            epsilonWallFunction;
-        value           uniform 0.01;
+        type            fixedValue;
+        value           uniform 0.1;
     }
-    fixedWalls
+
+    aircon_inlet
     {
-        type            epsilonWallFunction;
-        value           uniform 0.01;
+        type            fixedValue;
+        value           uniform 0.05;
     }
 }
 

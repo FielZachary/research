@@ -19,22 +19,25 @@ internalField   uniform 0;
 
 boundaryField
 {
-    floor
+    walls
     {
-        type            fixedFluxPressure;
-        value           $internalField;
+        type            fixedFluxPressure;   // Wall pressure condition
+        rho             rho;                 // Use the local density
+        value           uniform 0;
     }
 
-    ceiling
+    fan_inlet
     {
-        type            fixedFluxPressure;
-        value           $internalField;
+        type            fixedFluxPressure;   // Adjust for fan-driven pressure
+        rho             rho;
+        value           uniform 0;
     }
 
-    fixedWalls
+    aircon_inlet
     {
-        type            fixedFluxPressure;
-        value           $internalField;
+        type            fixedFluxPressure;   // Adjust for aircon-driven pressure
+        rho             rho;
+        value           uniform 0;
     }
 }
 

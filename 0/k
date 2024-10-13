@@ -20,20 +20,22 @@ internalField   uniform 0.1;
 
 boundaryField
 {
-    floor
+    walls
     {
         type            kqRWallFunction;
         value           uniform 0.1;
     }
-    ceiling
+
+    fan_inlet
     {
-        type            kqRWallFunction;
-        value           uniform 0.1;
+        type            fixedValue;
+        value           uniform 0.1;  // Adjust based on inlet turbulence
     }
-    fixedWalls
+
+    aircon_inlet
     {
-        type            kqRWallFunction;
-        value           uniform 0.1;
+        type            fixedValue;
+        value           uniform 0.05; // Adjust based on inlet turbulence
     }
 }
 

@@ -20,20 +20,22 @@ internalField   uniform 0;
 
 boundaryField
 {
-    floor
+    walls
     {
-        type            compressible::alphatWallFunction;
+        type            compressible::alphatWallFunction;  // Wall function for heat transfer
         value           uniform 0;
     }
-    ceiling
+
+    fan_inlet
     {
-        type            compressible::alphatWallFunction;
-        value           uniform 0;
+        type            fixedValue;
+        value           uniform 0;    // Adjust based on the fan's turbulence
     }
-    fixedWalls
+
+    aircon_inlet
     {
-        type            compressible::alphatWallFunction;
-        value           uniform 0;
+        type            fixedValue;
+        value           uniform 0;    // Adjust based on aircon's turbulence
     }
 }
 
