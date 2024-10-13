@@ -20,19 +20,21 @@ internalField   uniform 0;
 
 boundaryField
 {
-    floor
+    walls
     {
-        type            nutkWallFunction;
+        type            nutkWallFunction;    // Wall function for turbulence
+        value           uniform 0;           // Zero viscosity at walls
+    }
+
+    aircon_inlet
+    {
+        type            calculated;
         value           uniform 0;
     }
-    ceiling
+
+    fan_inlet
     {
-        type            nutkWallFunction;
-        value           uniform 0;
-    }
-    fixedWalls
-    {
-        type            nutkWallFunction;
+        type            calculated;
         value           uniform 0;
     }
 }
