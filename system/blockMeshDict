@@ -34,11 +34,19 @@ vertices
     (0 10.5241 0) // Vertex 13
     (8.251 1 2.0632) // Vertex 14
     (0 0 0.8) // Vertex 15
+    (8.251 11.5241 0.8) // Vertex 16
+    (8.251 10.5241 0.8) // Vertex 17
+    (8.251 10.5241 0) // Vertex 18
+    (1 0 0) // Vertex 19
+    (1 1 0) // Vertex 20
+    (0 1 0) // Vertex 21
 );
 
 blocks
 (
     hex (0 1 2 3 4 5 6 7) (50 50 25) simpleGrading (1 1 1)
+    hex (4 10 9 8 0 19 20 21) (25 25 50) simpleGrading (1 1 1)
+    hex (3 13 12 11 2 18 17 16) (25 25 50) simpleGrading (1 1 1)
 );
 
 edges
@@ -53,10 +61,8 @@ boundary
         faces
         (
             (0 1 2 3)   // Floor
-            (8 14 6 7)   // Ceiling 1
-            (10 5 14 9) // Ceiling 2
-            (15 11 7 4)   // Left wall 1
-            (0 13 12 15)    // Left wall 2
+            (4 5 6 7)   // Ceiling
+            (3 0 4 7)   // Left wall
             (1 2 6 5)   // Right wall
             (0 1 5 4)   // Front wall
             (2 3 7 6)   // Back wall
